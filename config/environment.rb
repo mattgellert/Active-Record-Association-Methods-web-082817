@@ -10,6 +10,8 @@ Dir[File.join(File.dirname(__FILE__), "../lib/support", "*.rb")].each {|f| requi
 DBRegistry[ENV["PLAYLISTER_ENV"]].connect!
 DB = ActiveRecord::Base.connection
 
+ActiveRecord::Base.logger = false
+
 if ENV["PLAYLISTER_ENV"] == "test"
   ActiveRecord::Migration.verbose = false
 end
